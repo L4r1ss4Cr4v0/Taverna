@@ -169,7 +169,7 @@ function renderCatalog() {
   for (let i = 0; i < drinks.length; i++) {
     const drink = drinks[i];
 
-    const column = `<div class="col-md-3 justify-content-md-center">
+    const column = `<div class="col-4 justify-content-md-center">
     <a href="details.html?id=${drink.id}">
         ${createCard(
           drink.name,

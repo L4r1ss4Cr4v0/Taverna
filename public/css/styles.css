@@ -151,11 +151,15 @@ p {
   width: fit-content;
 }
 
-form div {
+#select-itens{
+  color: black !important
+}
+
+#search-name {
   border-bottom: 2px solid gold;
 }
 
-form div:has(input:placeholder-shown) {
+#search-name:has(input:placeholder-shown) {
   border-bottom-color: silver;
 }
 
