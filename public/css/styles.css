@@ -1,0 +1,253 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "K2D", sans-serif;
+  scroll-behavior: smooth;
+  color: white;
+}
+
+body {
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  justify-content: space-between;
+  margin: 20px 50px 0 50px;
+}
+
+header nav a:hover,
+header a[href="#home"] {
+  transition: 0.3s;
+  border-bottom-color: gold;
+}
+
+#logo {
+  width: 130px;
+}
+
+a {
+  font-size: 12pt;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar-nav {
+  gap: 10px;
+}
+
+button[aria-expanded="false"] .navbar-nav {
+  position: absolute;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus-visible {
+  padding-left: 0;
+  border: none !important;
+  color: transparent !important;
+}
+
+main {
+  align-content: center;
+  height: 90vh;
+  justify-content: center;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 span {
+  color: white;
+  font-weight: 300;
+}
+
+#title {
+  font-size: 45pt;
+}
+
+#hero-page {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1574879948818-1cfda7aa5b1a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h2 {
+  width: fit-content;
+  margin: 0 auto 60px auto;
+  font-size: 40pt;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20pt;
+  margin: 10px 0;
+}
+
+.container > div > div {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.col-md-3 {
+  margin: 0 !important;
+}
+
+.carousel img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  width: 310px;
+  height: 320px;
+  object-fit: cover;
+}
+
+#carousel img:hover {
+  transform: scale(1.05);
+}
+
+#banner-section {
+  height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=2157&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.drink-card {
+  position: relative;
+  background: rgb(37, 37, 37);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid rgb(53, 52, 52);
+  width: 340px;
+  height: 300px;
+  padding: 10px;
+}
+
+.drink-card img.main-img {
+  width: 150px;
+  height: 100%;
+  padding-right: 20px;
+  object-fit: cover;
+  float: left;
+}
+
+.drink-card img.country {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+p {
+  width: fit-content;
+}
+
+form div {
+  border-bottom: 2px solid gold;
+}
+
+form div:has(input:placeholder-shown) {
+  border-bottom-color: silver;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+}
+
+footer img {
+  height: 40px;
+  width: 40px;
+}
+
+#second-footer-line > div {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#second-footer-line h3,
+#second-footer-line p {
+  width: fit-content;
+}
+
+.container a {
+  text-decoration: none;
+}
+
+.container p:hover {
+  cursor: text;
+}
+
+#details-img {
+  object-fit: cover;
+  width: 30vw;
+  height: 80vh;
+}
+
+#main-details {
+  padding: 20px 50px 0 50px;
+}
+
+#main-details li {
+  list-style-type: "- ";
+}
+
+.country-details {
+  width: 50px;
+}
+
+#details-img {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid rgb(53, 52, 52);
+}
+
+@media (min-width: 1350px) {
+  .carousel-item .container div .col-md-3:nth-of-type(2) img {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .row {
+    row-gap: 20px;
+  }
+  #title {
+    width: 90%;
+  }
+
+  #banner-section {
+    height: 30vh;
+  }
+}
+
+@media (max-width: 900px) {
+  form {
+    flex-direction: column;
+  }
+
+  form div.input-group.flex-nowrap + button,
+  form div.input-group.flex-nowrap {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #second-footer-line div {
+    font-size: small;
+  }
+
+  form div.input-group.flex-nowrap {
+    width: 300px;
+  }
+}
