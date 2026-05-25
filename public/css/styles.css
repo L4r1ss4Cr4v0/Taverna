@@ -205,8 +205,10 @@ footer img {
   width: 50px;
 }
 
+
+
 #details-img {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px second-footer-line,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border: 1px solid rgb(53, 52, 52);
 }
@@ -249,5 +251,18 @@ footer img {
 
   form div.input-group.flex-nowrap {
     width: 300px;
+  }
+
+  #about > div{
+    align-items: start !important;
+    flex-direction: column;
+  }
+
+  #about > div > div{
+    border-right: 0 !important;
+    margin-left: 1rem;
+    padding: 1rem !important;
+    padding-left: 0 !important;
+    border-bottom: 1px solid gold;
   }
 }
