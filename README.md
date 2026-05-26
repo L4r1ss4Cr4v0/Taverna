@@ -3,7 +3,6 @@
 ## Informações Gerais
 
 - Nome: Larissa Cravo Carvalho Câmara Santos
-- Matricula: 911467
 - Proposta de projeto escolhida: Taverna - Site de drinks
 - Breve descrição sobre seu projeto: O projeto Taverna consiste em um site temático voltado para a descoberta de drinks típicos de diferentes países ao redor do mundo. A plataforma apresenta bebidas populares e um catálogo organizado com cards que exibem imagem, descrição e país de origem de cada drink. O usuário pode explorar a diversidade cultural das bebidas, além de utilizar filtros e busca para encontrar drinks por nome ou país.
 
