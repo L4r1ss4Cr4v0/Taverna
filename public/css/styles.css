@@ -240,7 +240,7 @@ footer img {
 }
 
 @media (max-width: 900px) {
-  #form-search-row {
+  #search-row {
     flex-direction: column;
     gap: 25px !important;
   }
