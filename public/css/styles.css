@@ -151,8 +151,12 @@ p {
   width: fit-content;
 }
 
-#select-itens{
-  color: black !important
+select {
+  outline: none;
+}
+
+option {
+  background-color: #212529;
 }
 
 #search-name {
@@ -209,8 +213,6 @@ footer img {
   width: 50px;
 }
 
-
-
 #details-img {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px second-footer-line,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -238,13 +240,23 @@ footer img {
 }
 
 @media (max-width: 900px) {
-  form {
+  #form-search-row {
     flex-direction: column;
+    gap: 25px !important;
   }
 
   form div.input-group.flex-nowrap + button,
   form div.input-group.flex-nowrap {
     margin-left: 0 !important;
+  }
+
+  .input-group {
+    width: auto !important;
+  }
+
+  #search-name,
+  #search-btn {
+    margin: 0 !important;
   }
 }
 
@@ -257,12 +269,12 @@ footer img {
     width: 300px;
   }
 
-  #about > div{
+  #about > div {
     align-items: start !important;
     flex-direction: column;
   }
 
-  #about > div > div{
+  #about > div > div {
     border-right: 0 !important;
     margin-left: 1rem;
     padding: 1rem !important;
