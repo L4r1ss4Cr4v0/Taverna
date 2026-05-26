@@ -161,13 +161,20 @@ const drinks = [
   },
 ];
 
-function renderCatalog() {
+function renderCatalog(itens = drinks) {
   const catalogContainer = document.querySelector("#drinks-galery .container");
+
+  catalogContainer.innerHTML = "";
+
+  if (!itens) {
+    catalogContainer.textContent = "Não encontrado";
+  }
+
   let row = document.createElement("div");
   row.className = "row gap-3 justify-content-center pt-5";
 
-  for (let i = 0; i < drinks.length; i++) {
-    const drink = drinks[i];
+  for (let i = 0; i < itens.length; i++) {
+    const drink = itens[i];
 
     const column = `<div class="col-4 justify-content-md-center">
     <a href="details.html?id=${drink.id}">
@@ -254,4 +261,24 @@ function renderScreen(drink) {
 
   const listRecipe = document.querySelector("#list-steps");
   listItens(drink.recipe.steps, listRecipe);
+}
+
+function filterDrinksByName(name) {
+  const result = drinks.filter((drink) => drink.name.includes(name));
+
+  renderCatalog(result);
+}
+
+function filterDrinksByCountry(country) {
+  if (country == "todos") {
+    renderCatalog();
+    return;
+  }
+  const result = drinks.filter((drink) => drink.country == country);
+
+  if (result) {
+    //TODO adicionar caso de não encontrar nenhum
+  }
+
+  renderCatalog(result);
 }

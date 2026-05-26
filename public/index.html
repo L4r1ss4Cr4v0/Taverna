@@ -257,10 +257,11 @@
           <select
             class="custom-select bg-transparent border border-start-0 border-light p-1"
           >
-            <option value="brasil">Brasil</option>
-            <option value="eua">Estados Unidos</option>
-            <option value="franca">França</option>
-            <option value="japao">Japão</option>
+            <option value="todos">Todos</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Estados Unidos">Estados Unidos</option>
+            <option value="França">França</option>
+            <option value="Japão">Japão</option>
           </select>
         </div>
         <button
@@ -317,6 +318,16 @@
     <script src="js/app.js"></script>
     <script>
       renderCatalog();
+
+      const textInput = document.querySelector("#search-name input");
+      const countrySelect = document.querySelector("#select-itens select");
+
+      textInput.addEventListener("input", () =>
+        filterDrinksByName(textInput.value)
+      );
+      countrySelect.addEventListener("change", () =>
+        filterDrinksByCountry(countrySelect.value)
+      );
     </script>
   </body>
 </html>
