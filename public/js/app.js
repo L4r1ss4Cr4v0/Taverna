@@ -274,6 +274,7 @@ function filterDrinksByCountry(country) {
     renderCatalog();
     return;
   }
+
   const result = drinks.filter((drink) => drink.country == country);
 
   if (result) {
@@ -281,4 +282,49 @@ function filterDrinksByCountry(country) {
   }
 
   renderCatalog(result);
+}
+
+function buildCarousel() {
+  const carouselInner = document.querySelector(".carousel-inner");
+
+  carouselInner.innerHTML = "";
+
+  const firstDrinks = drinks.slice(0, 6);
+
+  for (let i = 0; i < firstDrinks.length; i += 3) {
+    const group = firstDrinks.slice(i, i + 3);
+
+    const carouselItem = document.createElement("div");
+
+    carouselItem.className = i === 0 ? "carousel-item active" : "carousel-item";
+
+    const container = document.createElement("div");
+    container.className = "container";
+
+    const row = document.createElement("div");
+    row.className = "row justify-content-center align-items-center";
+
+    group.forEach((drink) => {
+      const col = document.createElement("div");
+
+      col.className = "col-12 col-md-4 carousel-col";
+      col.innerHTML = `
+      <div class="drink-carousel-card">
+        <img src="${drink.image}" alt="${drink.name}" />
+    
+        <h5>${drink.name}</h5>
+    
+        <p>${drink.description}</p>
+      </div>
+    `;
+
+      row.appendChild(col);
+    });
+
+    container.appendChild(row);
+
+    carouselItem.appendChild(container);
+
+    carouselInner.appendChild(carouselItem);
+  }
 }

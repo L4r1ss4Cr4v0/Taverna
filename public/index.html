@@ -85,80 +85,8 @@
     >
       <h2>Drinks Populares</h2>
       <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1582993232955-39424b2cef01?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Martini"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1651877546976-ab61bf889b68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmVncm9uaXxlbnwwfHwwfHx8Mg%3D%3D"
-                    alt="Negroni"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1655546837806-76a6dd54ee2b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Margarita"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1687852310878-654b4f39e8cd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Daiquiri"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1659046842567-2787b5c9c2fe?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Mojito"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1555766720-1e727844cc8f?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Sangria"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1621873495884-845a939892d1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Old Fashioned"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1582056509381-33e11b85733f?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Manhattan"
-                  />
-                </div>
-                <div class="col-12 col-md-3 carousel-col">
-                  <img
-                    src="https://images.unsplash.com/photo-1682423228933-0e8b8fc4f92a?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Mimosa"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="carousel-inner"></div>
+
         <button
           class="carousel-control-prev"
           type="button"
@@ -318,6 +246,7 @@
     <script src="js/app.js"></script>
     <script>
       renderCatalog();
+      buildCarousel();
 
       const textInput = document.querySelector("#search-name input");
       const countrySelect = document.querySelector("#select-itens select");
