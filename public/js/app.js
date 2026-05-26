@@ -161,23 +161,34 @@ const drinks = [
   },
 ];
 
-function renderCatalog(itens = drinks) {
-  const catalogContainer = document.querySelector("#drinks-galery .container");
+const catalogContainer = document.querySelector("#drinks-gallery .container");
 
+function renderCatalog(items = drinks) {
   catalogContainer.innerHTML = "";
 
-  if (!itens) {
-    catalogContainer.textContent = "Não encontrado";
+  if (!catalogContainer) {
+    return;
   }
 
-  let row = document.createElement("div");
-  row.className = "row gap-3 justify-content-center pt-5";
+  if (!items || items.length === 0) {
+    catalogContainer.className =
+      "d-flex justify-content-center py-3 align-items-center h-50";
+    catalogContainer.textContent = "Não encontrado";
+    return;
+  }
 
-  for (let i = 0; i < itens.length; i++) {
-    const drink = itens[i];
+  catalogContainer.className = "";
 
-    const column = `<div class="col-4 justify-content-md-center">
-    <a href="details.html?id=${drink.id}">
+  const row = document.createElement("div");
+
+  row.className = "row pt-5 justify-content-center";
+
+  items.forEach((drink) => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-md-6 col-xl-4 d-flex justify-content-center";
+
+    col.innerHTML = `
+      <a href="details.html?id=${drink.id}">
         ${createCard(
           drink.name,
           drink.description,
@@ -186,17 +197,11 @@ function renderCatalog(itens = drinks) {
           drink.countryImage
         )}
       </a>
-    </div>`;
+    `;
 
-    if (i % 3 == 0 && i > 0) {
-      catalogContainer.appendChild(row);
-      row = document.createElement("div");
-      row.className = "row gap-3 justify-content-center pt-5";
-      row.innerHTML = column;
-    } else {
-      row.innerHTML += column;
-    }
-  }
+    row.appendChild(col);
+  });
+
   catalogContainer.appendChild(row);
 }
 
@@ -284,9 +289,9 @@ function filterDrinksByCountry(country) {
   renderCatalog(result);
 }
 
-function buildCarousel() {
-  const carouselInner = document.querySelector(".carousel-inner");
+const carouselInner = document.querySelector(".carousel-inner");
 
+function buildCarousel() {
   carouselInner.innerHTML = "";
 
   const firstDrinks = drinks.slice(0, 6);

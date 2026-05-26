@@ -193,11 +193,11 @@ footer img {
   width: fit-content;
 }
 
-.container a {
+.col-12 a {
   text-decoration: none;
 }
 
-.container p:hover {
+.col-12 p:hover {
   cursor: text;
 }
 
@@ -225,6 +225,14 @@ footer img {
   border: 1px solid rgb(53, 52, 52);
 }
 
+#catalog {
+  width: 90%;
+}
+
+.row {
+  row-gap: 20px;
+}
+
 @media (min-width: 1350px) {
   .carousel-item .container div .col-md-3:nth-of-type(2) img {
     width: 340px;
@@ -233,9 +241,6 @@ footer img {
 }
 
 @media (max-width: 1300px) {
-  .row {
-    row-gap: 20px;
-  }
   #title {
     width: 90%;
   }
@@ -246,16 +251,10 @@ footer img {
 }
 
 @media (max-width: 900px) {
-  #form-search-row {
+  #search-row {
     flex-direction: column;
     gap: 25px !important;
   }
-
-  form div.input-group.flex-nowrap + button,
-  form div.input-group.flex-nowrap {
-    margin-left: 0 !important;
-  }
-
   .input-group {
     width: auto !important;
   }
@@ -263,6 +262,10 @@ footer img {
   #search-name,
   #search-btn {
     margin: 0 !important;
+  }
+  form div.input-group.flex-nowrap + button,
+  form div.input-group.flex-nowrap {
+    margin-left: 0 !important;
   }
 }
 
