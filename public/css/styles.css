@@ -153,6 +153,10 @@ h3 {
   object-fit: cover;
 }
 
+.input-group {
+  width: auto !important;
+}
+
 p {
   width: fit-content;
 }
@@ -255,15 +259,11 @@ footer img {
     flex-direction: column;
     gap: 25px !important;
   }
-  .input-group {
-    width: auto !important;
-  }
 
-  #search-name,
-  #search-btn {
+  #search-name {
     margin: 0 !important;
   }
-  form div.input-group.flex-nowrap + button,
+
   form div.input-group.flex-nowrap {
     margin-left: 0 !important;
   }
