@@ -1,4 +1,7 @@
 {
+  "users": [
+    { "id": 1, "name": "Larissa", "password": "sdadasd", "favorites": [] }
+  ],
   "drinks": [
     {
       "id": 1,
