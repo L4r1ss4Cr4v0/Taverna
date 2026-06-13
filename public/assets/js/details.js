@@ -1,11 +1,11 @@
-const API_URL_DRINKS = "/drinks";
+import drinkService from "../../services/drink-service.js";
+import { renderHeader } from "./utils.js";
 
 const main = document.querySelector("#main-details");
 
-async function init() {
+export default async function init() {
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
-
   if (!id) {
     main.style.height = "80vh";
     main.innerText =
@@ -13,7 +13,7 @@ async function init() {
     return;
   }
 
-  const drink = await getDrinkById(id);
+  const drink = await drinkService.getDrink(id);
 
   if (!drink) {
     main.style.height = "80vh";
@@ -21,6 +21,7 @@ async function init() {
     return;
   }
 
+  renderHeader();
   renderDetailsScreen(drink);
 }
 
@@ -35,7 +36,7 @@ async function getDrinkById(id) {
 function listItens(itens, list) {
   itens.forEach((item) => {
     const li = document.createElement("li");
-    li.style.textTransform = "capitalize"
+    li.style.textTransform = "capitalize";
     li.textContent = item;
     list.appendChild(li);
   });
