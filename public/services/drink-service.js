@@ -7,12 +7,13 @@ class DrinkService {
     const res = await fetch(`${this.urlBase}?_expand=country`);
     return res.json();
   }
+
   async getDrink(id) {
     const res = await fetch(`${this.urlBase}/${id}?_expand=country`);
     return res.json();
   }
 
-  async searchDrinks(text, countryId) {
+  async findDrinks(text, countryId) {
     const params = new URLSearchParams();
 
     params.append("_expand", "country");
@@ -21,9 +22,11 @@ class DrinkService {
       params.append("q", text);
     }
 
-    if (countryId) {
+    if (countryId != 0) {
       params.append("countryId", countryId);
     }
+
+    console.log(`${this.urlBase}?${params.toString()}`);
 
     const response = await fetch(`${this.urlBase}?${params.toString()}`);
 
@@ -41,6 +44,7 @@ class DrinkService {
 
     return res.json();
   }
+
   async updateDrink(id, drink) {
     const res = await fetch(`${this.urlBase}/${id}`, {
       method: "PUT",
@@ -52,6 +56,7 @@ class DrinkService {
 
     return res.json();
   }
+
   async deleteDrink(id) {
     const res = await fetch(`${this.urlBase}/${id}`, {
       method: "DELETE",

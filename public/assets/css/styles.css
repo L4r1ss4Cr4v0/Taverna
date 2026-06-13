@@ -168,10 +168,12 @@ p {
 }
 
 select {
+  text-transform: capitalize;
   outline: none;
 }
 
 option {
+  text-transform: capitalize;
   background-color: #212529;
 }
 
@@ -253,8 +255,18 @@ footer img {
   margin-right: 10px;
 }
 
-#submit-btn {
+#submit-btn,
+#login-btn {
   background-color: gold;
+}
+
+#drink-form .form-control:focus {
+  border-color: gold !important;
+  box-shadow: rgba(251, 255, 0, 0.4) 0px 0px 0px 0.25rem;
+}
+
+#main-form-users {
+  height: 80vh;
 }
 
 @media (min-width: 1350px) {

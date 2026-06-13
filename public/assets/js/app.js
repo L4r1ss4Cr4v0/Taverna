@@ -143,7 +143,7 @@ function createCard(
 }
 
 export async function handleSearch(inputSearch, selectCountry) {
-  const drinks = await drinkService.searchDrinks(inputSearch, selectCountry);
+  const drinks = await drinkService.findDrinks(inputSearch, selectCountry);
 
   renderCatalog(drinks);
 }
