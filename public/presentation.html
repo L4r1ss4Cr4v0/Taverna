@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
     <link
       href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
@@ -59,38 +60,27 @@
                   >Catálogo</a
                 >
               </li>
+              <li class="nav-item">
+                <a class="nav-link active border border-gold" href="cadastro_drink.html"
+                  >Add Drink</a
+                >
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-
-    <main
-      class="d-flex align-items-center justify-content-around"
-      id="main-details"
-    >
-      <section id="drink-details">
-        <ul id="list-tags"></ul>
-        <h5>Descrição</h5>
-        <p id="description"></p>
-        <h5 class="d-inline-block mb-4">Dificuldade:</h5>
-        <span id="difficult"></span>
-        <h5>Ingredientes</h5>
-        <ul id="list-ingredients"></ul>
-        <h5>Modo de preparo</h5>
-        <ul id="list-steps"></ul>
-      </section>
-      <img src="" alt="" id="details-img" class="d-block" />
+    <main class="d-flex">
+      <canvas id="chart" class="w-75 h-75"></canvas>
     </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./assets/js/details.js"></script>
-    <script>
-      init();
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module">
+      import renderChart from "./assets/js/presentation.js";
+
+      const ctx = document.querySelector("#chart");
+      renderChart(countries, drinks);
     </script>
   </body>
 </html>
