@@ -4,13 +4,32 @@ class DrinkService {
   }
 
   async getDrinks() {
-    const res = await fetch(this.urlBase);
+    const res = await fetch(`${this.urlBase}?_expand=country`);
     return res.json();
   }
   async getDrink(id) {
-    const res = await fetch(`${this.urlBase}/${id}`);
+    const res = await fetch(`${this.urlBase}/${id}?_expand=country`);
     return res.json();
   }
+
+  async searchDrinks(text, countryId) {
+    const params = new URLSearchParams();
+
+    params.append("_expand", "country");
+
+    if (text) {
+      params.append("q", text);
+    }
+
+    if (countryId) {
+      params.append("countryId", countryId);
+    }
+
+    const response = await fetch(`${this.urlBase}?${params.toString()}`);
+
+    return response.json();
+  }
+
   async createDrink(drink) {
     const res = await fetch(this.urlBase, {
       method: "POST",

@@ -1,25 +1,16 @@
-import DrinkService from "../../services/drink-service.js";
+import drinkService from "../../services/drink-service.js";
+import countryService from "../../services/country-service.js";
 
-const API_URL_DRINKS = "/drinks";
-const API_URL_COUNTRIES = "/countries";
 const catalogContainer = document.querySelector("#drinks-gallery .container");
 const carouselInner = document.querySelector(".carousel-inner");
 const select = document.querySelector("#select-itens select");
 
 export default async function init() {
-  const drinks = await DrinkService.getDrinks();
-  const countries = await getCountries();
+  const drinks = await drinkService.getDrinks();
+  const countries = await countryService.getCountries();
   listOptions(countries);
   buildCarousel(drinks);
   renderCatalog(drinks);
-}
-
-async function getCountries() {
-  return fetch(`${API_URL_COUNTRIES}`)
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error("Erro ao ler drinks via API JSONServer:", error);
-    });
 }
 
 function buildCarousel(drinks) {
@@ -151,19 +142,8 @@ function createCard(
   return card;
 }
 
-export async function searchDrinks(text, country) {
-  let query = "_expand=country&";
-  if (text.length != 0) {
-    query += `q=${text}&`;
-  }
+export async function handleSearch(inputSearch, selectCountry) {
+  const drinks = await drinkService.searchDrinks(inputSearch, selectCountry);
 
-  if (country != 0) {
-    query += `countryId=${country}`;
-  }
-
-  const selectedDrinks = await fetch(`${API_URL_DRINKS}?${query}`).then((res) =>
-    res.json()
-  );
-
-  renderCatalog(selectedDrinks);
+  renderCatalog(drinks);
 }

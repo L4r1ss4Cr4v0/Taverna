@@ -4,13 +4,13 @@
   "description": "O projeto Taverna consiste em um site temático voltado para a descoberta de drinks típicos de diferentes países ao redor do mundo. A plataforma apresenta bebidas populares e um catálogo organizado com cards que exibem imagem, descrição e país de origem de cada drink. O usuário pode explorar a diversidade cultural das bebidas, além de utilizar filtros e busca para encontrar drinks por nome ou país.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/json-server/lib/bin.js --watch ./db/db.json --static ./public",
+    "start": "node ./node_modules/json-server/lib/cli/bin.js --watch ./db/db.json --static ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Larissa Cravo Carvalho Câmara Santos",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^1.0.0-beta.15"
+    "json-server": "^0.17.4"
   }
 }

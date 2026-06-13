@@ -21,7 +21,11 @@
     <div id="hero-page">
       <header class="d-flex align-items-center">
         <a href="index.html#home">
-          <img src="./assets/img/TavernaLogo.png" alt="Logo da Taverna" id="logo" />
+          <img
+            src="./assets/img/TavernaLogo.png"
+            alt="Logo da Taverna"
+            id="logo"
+          />
         </a>
         <nav class="navbar navbar-expand-md navbar-dark">
           <div class="">
@@ -244,17 +248,17 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script>
-      import {init, searchDrinks} from "./assets/js/app.js";
-
+    <script type="module">
+      import init, { handleSearch } from "./assets/js/app.js";
 
       init();
+
       const textInput = document.querySelector("#search-name input");
       const countrySelect = document.querySelector("#select-itens select");
       const searchBtn = document.querySelector("#search-btn");
 
       searchBtn.addEventListener("click", () =>
-        searchDrinks(textInput.value, countrySelect.value)
+        handleSearch(textInput.value, countrySelect.value)
       );
     </script>
   </body>
