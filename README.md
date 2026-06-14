@@ -1,4 +1,4 @@
-# Trabalho Prático 1
+# Trabalho Prático 2
 
 ## Informações Gerais
 
@@ -8,11 +8,11 @@
 
 ## Print da Homepage
 
-![Print 1 da tela desktop](public/img/print-desktop-1.png)
-![Print 2 da tela desktop](public/img/print-desktop-2.png)
-![Print 3 da tela desktop](public/img/print-desktop-3.png)
-![Print 4 da tela desktop](public/img/print-desktop-4.png)
-![Print 5 da tela desktop](public/img/print-desktop-5.png)
+![Print 1 da tela desktop](public/assets/img/print-desktop-1.png)
+![Print 2 da tela desktop](public/assets/img/print-desktop-2.png)
+![Print 3 da tela desktop](public/assets/img/print-desktop-3.png)
+![Print 4 da tela desktop](public/assets/img/print-desktop-4.png)
+![Print 5 da tela desktop](public/assets/img/print-desktop-5.png)
 
 ## Print da Página de Detalhes
 
