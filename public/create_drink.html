@@ -17,148 +17,24 @@
     <title>Taverna</title>
   </head>
   <body class="bg-dark">
-    <header class="d-flex align-items-center">
-      <a href="index.html#home">
-        <img src="./assets/img/TavernaLogo.png" alt="Logo da Taverna" id="logo" />
-      </a>
-      <nav class="navbar navbar-expand-md navbar-dark">
-        <div class="">
+    <main class="d-flex w-auto py-5">
+      <div
+        class="toast position-absolute"
+        id="toast-container"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body"></div>
           <button
-            class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav text-white">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="index.html#home"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html#about"
-                  >Sobre o projeto</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html#popular-drinks"
-                  >Drinks Populares</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html#catalog"
-                  >Catálogo</a
-                >
-              </li>
-            </ul>
-          </div>
+            class="btn-close btn-close-black me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
         </div>
-      </nav>
-    </header>
-    <main class="d-flex w-auto">
-      <form class="w-50">
-        <h2 class="mb-4">Cadastro de Drink</h2>
-
-        <div class="row g-3">
-          <div class="col-md-12">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="name" required />
-          </div>
-
-          <div class="col-12">
-            <label for="shortDescription" class="form-label" >
-              Descrição Curta
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="shortDescription"
-              maxlength="120"
-              required
-            />
-          </div>
-
-          <div class="col-12">
-            <label for="fullDescription" class="form-label">
-              Descrição Completa
-            </label>
-            <textarea
-              class="form-control"
-              id="fullDescription"
-              maxlength="200"
-              required
-            ></textarea>
-          </div>
-
-          <div class="col-md-4">
-            <label for="image" class="form-label">URL da Imagem</label>
-            <input type="url" class="form-control" id="image" required />
-          </div>
-
-          <div class="col-md-4">
-            <label for="country" class="form-label">País</label>
-            <input type="text" class="form-control" id="country" required />
-          </div>
-          
-          <div class="col-md-4">
-            <label for="difficultyLevel" class="form-label">
-              Nível de Dificuldade
-            </label>
-            <input type="number" min="1" max="10" class="form-control" id="difficultyLevel" required />
-          </div>
-
-          <div class="col-md-12">
-            <label for="tags" class="form-label">
-              Tags (separadas por vírgula)
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="tags"
-              placeholder="rum, hortelã, limão, refrescante"
-            />
-          </div>
-
-          <div class="col-12">
-            <label for="curiosity" class="form-label">Curiosidade</label>
-            <textarea class="form-control" id="curiosity" rows="3"></textarea>
-          </div>
-        </div>
-
-        <h4 class="mt-4">Receita</h4>
-
-        <div class="mb-3">
-          <label for="ingredients" class="form-label"> Ingredientes </label>
-          <textarea
-            class="form-control"
-            id="ingredients"
-            rows="6"
-            placeholder="Um ingrediente por linha"
-          ></textarea>
-        </div>
-
-        <div class="mb-3">
-          <label for="preparationSteps" class="form-label">
-            Modo de Preparo
-          </label>
-          <textarea
-            class="form-control"
-            id="preparationSteps"
-            rows="6"
-            placeholder="Um passo por linha"
-          ></textarea>
-        </div>
-
-        <button id="submit-btn" type="submit" class="btn w-100 fw-bold">Salvar Drink</button>
-      </form>
+      </div>
     </main>
 
     <script
@@ -167,6 +43,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./assets/js/cadastro_drink.js"></script>
+    <script type="module">
+      import init from "./assets/js/cadastro_drink.js";
+
+      init();
+    </script>
   </body>
 </html>

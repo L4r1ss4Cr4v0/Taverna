@@ -1,5 +1,6 @@
 import drinkService from "../../services/drink-service.js";
 import countryService from "../../services/country-service.js";
+import { createCard, getMe, renderHeader } from "./utils.js";
 
 const catalogContainer = document.querySelector("#drinks-gallery .container");
 const carouselInner = document.querySelector(".carousel-inner");
@@ -8,9 +9,13 @@ const select = document.querySelector("#select-itens select");
 export default async function init() {
   const drinks = await drinkService.getDrinks();
   const countries = await countryService.getCountries();
+  const user = getMe();
+  renderHeader(user && user.id);
   listOptions(countries);
   buildCarousel(drinks);
   renderCatalog(drinks);
+  const ctx = document.querySelector("#chart");
+  renderChart(ctx);
 }
 
 function buildCarousel(drinks) {
@@ -36,13 +41,15 @@ function buildCarousel(drinks) {
 
       col.className = "col-12 col-md-4 carousel-col";
       col.innerHTML = `
-      <div class="drink-carousel-card">
-        <img src="${drink.image}" alt="${drink.name}" />
-    
-        <h5>${drink.name}</h5>
-    
-        <p>${drink.shortDescription}</p>
-      </div>
+      <a href="details.html?id=${drink.id}">
+        <div class="drink-carousel-card">
+          <img src="${drink.image}" alt="${drink.name}" />
+      
+          <h5>${drink.name}</h5>
+      
+          <p>${drink.shortDescription}</p>
+        </div>
+      </a>
     `;
 
       row.appendChild(col);
@@ -82,7 +89,6 @@ async function renderCatalog(items) {
   catalogContainer.className = "";
 
   const row = document.createElement("div");
-
   row.className = "row pt-5 justify-content-center";
 
   items.forEach((drink) => {
@@ -98,12 +104,30 @@ async function renderCatalog(items) {
       drink.country.image
     );
 
-    const button = col.querySelector(".drink-card button");
+    const button = col.querySelector("#details-btn");
 
     button.addEventListener(
       "click",
       () => (window.location.href = `details.html?id=${drink.id}`)
     );
+
+    const favoriteBtn = col.querySelector(".btn-favorite");
+
+    favoriteBtn.addEventListener("click", () => {
+      if (user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      const icon = favoriteBtn.querySelector("i");
+      const isFavorited = icon.classList.contains("bi-heart-fill");
+
+      icon.classList.replace(
+        isFavorited ? "bi-heart-fill" : "bi-heart",
+        isFavorited ? "bi-heart" : "bi-heart-fill"
+      );
+      userService.toggleFavorite(userId, id);
+    });
 
     row.appendChild(col);
   });
@@ -111,39 +135,50 @@ async function renderCatalog(items) {
   catalogContainer.appendChild(row);
 }
 
-function createCard(
-  name,
-  description,
-  difficult,
-  imgDrink,
-  country,
-  imgCountry
-) {
-  const card = `<article class="drink-card">
-                    <img src=${imgDrink} alt="Foto do drink ${name}" class="main-img"/>
-                    <h3>${name}</h3>
-                    <p class="text-light">
-                        ${description}
-                    </p>
-                    <p class="text-light w-auto">
-                        Dificuldade: ${difficult} / 5
-                    </p>
-                    <div>
-                      <button
-                      class="bg-transparent border border-warning text-light p-2 me-2"
-                      type="button"
-                    >
-                      Ver detalhes
-                    </button>
-                      <img src=${imgCountry} alt="Bandeira do(a) ${country}}" class="country"/>
-                    </div>
-                </article>`;
-
-  return card;
-}
-
 export async function handleSearch(inputSearch, selectCountry) {
   const drinks = await drinkService.findDrinks(inputSearch, selectCountry);
 
   renderCatalog(drinks);
+}
+
+async function renderChart(chart) {
+  const countries = await countryService.getCountries();
+  const drinks = await drinkService.getDrinks();
+
+  const countryNames = countries.map((country) => country.name);
+
+  const countDrinksByCountry = drinks.reduce((acc, drink) => {
+    const country = drink.country.name;
+    acc[country] = (acc[country] || 0) + 1;
+    return acc;
+  }, {});
+
+  const countDrinks = countryNames.map(
+    (country) => countDrinksByCountry[country] || 0
+  );
+
+  new Chart(chart, {
+    type: "bar",
+    data: {
+      labels: countryNames,
+      datasets: [
+        {
+          label: "Número de drinks",
+          data: countDrinks,
+          borderWidth: 1,
+          backgroundColor: "gold",
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
+    },
+  });
 }

@@ -11,6 +11,13 @@ class CountryService {
     const res = await fetch(`${this.urlBase}/${id}`);
     return res.json();
   }
+
+  async findCountry(countryName) {
+    const res = await fetch(
+      `${this.urlBase}/?name=${countryName.toLowerCase()}`
+    );
+    return res.json();
+  }
   async createCountry(country) {
     const res = await fetch(this.urlBase, {
       method: "POST",

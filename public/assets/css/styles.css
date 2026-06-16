@@ -35,6 +35,15 @@ a {
   border-bottom: 1px solid transparent;
 }
 
+#about a {
+  text-decoration: none;
+}
+
+#profile-picture {
+  width: 15vw;
+  margin-bottom: 10px;
+}
+
 .navbar-nav {
   gap: 10px;
 }
@@ -267,6 +276,12 @@ footer img {
 
 #main-form-users {
   height: 80vh;
+}
+
+#toast-container {
+  top: 10px;
+  right: 10px;
+  background: transparent;
 }
 
 @media (min-width: 1350px) {

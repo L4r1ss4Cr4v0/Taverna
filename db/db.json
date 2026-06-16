@@ -1,6 +1,33 @@
 {
   "users": [
-    { "id": 1, "name": "Larissa", "password": "sdadasd", "favorites": [] }
+    {
+      "id": 1,
+      "name": "Larissa",
+      "password": "123",
+      "favorites": [],
+      "admin": true
+    },
+    {
+      "name": "Larissa Cravo",
+      "password": "123",
+      "favorites": [],
+      "id": 2,
+      "admin": false
+    },
+    {
+      "name": "dev",
+      "password": "dev",
+      "admin": false,
+      "favorites": [],
+      "id": 3
+    },
+    {
+      "name": "admin",
+      "password": "admin",
+      "admin": false,
+      "favorites": [],
+      "id": 4
+    }
   ],
   "drinks": [
     {
@@ -11,7 +38,12 @@
       "image": "https://images.unsplash.com/photo-1749314375885-ce55f25cd6d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJsb29keSUyME1hcnl8ZW58MHx8MHx8fDI%3D",
       "countryId": 1,
       "difficultyLevel": 3,
-      "tags": ["vodka", "picante", "tomate", "clássico"],
+      "tags": [
+        "vodka",
+        "picante",
+        "tomate",
+        "clássico"
+      ],
       "isHighlighted": true,
       "recipe": {
         "ingredients": [
@@ -38,7 +70,12 @@
       "image": "https://images.unsplash.com/photo-1651877546976-ab61bf889b68?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 2,
       "difficultyLevel": 2,
-      "tags": ["gin", "campari", "italiano", "amargo"],
+      "tags": [
+        "gin",
+        "campari",
+        "italiano",
+        "amargo"
+      ],
       "isHighlighted": true,
       "recipe": {
         "ingredients": [
@@ -64,7 +101,12 @@
       "image": "https://images.unsplash.com/photo-1598294147169-fadc4e4a3ae4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 3,
       "difficultyLevel": 2,
-      "tags": ["vodka", "café", "cremoso", "doce"],
+      "tags": [
+        "vodka",
+        "café",
+        "cremoso",
+        "doce"
+      ],
       "isHighlighted": false,
       "recipe": {
         "ingredients": [
@@ -89,7 +131,12 @@
       "image": "https://images.unsplash.com/photo-1607446045710-d5a8fd9bc1db?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 4,
       "difficultyLevel": 1,
-      "tags": ["rum", "abacaxi", "coco", "tropical"],
+      "tags": [
+        "rum",
+        "abacaxi",
+        "coco",
+        "tropical"
+      ],
       "isHighlighted": true,
       "recipe": {
         "ingredients": [
@@ -114,7 +161,12 @@
       "image": "https://images.unsplash.com/photo-1632987788901-0c090e5f4eaf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": ["vodka", "cranberry", "cítrico", "elegante"],
+      "tags": [
+        "vodka",
+        "cranberry",
+        "cítrico",
+        "elegante"
+      ],
       "isHighlighted": false,
       "recipe": {
         "ingredients": [
@@ -140,11 +192,18 @@
       "image": "https://images.unsplash.com/photo-1571762450239-f0f047321444?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 6,
       "difficultyLevel": 1,
-      "tags": ["japonês", "arroz", "fermentado", "tradicional"],
+      "tags": [
+        "japonês",
+        "arroz",
+        "fermentado",
+        "tradicional"
+      ],
       "isHighlighted": false,
       "curiosity": "Apesar de ser conhecido como 'vinho de arroz', a produção do saquê é mais parecida com a fabricação de cerveja.",
       "recipe": {
-        "ingredients": ["150ml de saquê"],
+        "ingredients": [
+          "150ml de saquê"
+        ],
         "steps": [
           "Escolha servir o saquê quente ou gelado.",
           "Despeje em uma pequena taça tradicional.",
@@ -160,7 +219,12 @@
       "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9qaXRvfGVufDB8fDB8fA%3D%3D",
       "countryId": 7,
       "difficultyLevel": 2,
-      "tags": ["rum", "hortelã", "limão", "refrescante"],
+      "tags": [
+        "rum",
+        "hortelã",
+        "limão",
+        "refrescante"
+      ],
       "isHighlighted": true,
       "curiosity": "O Mojito é um dos coquetéis mais famosos de Cuba e supostamente era apreciado por Ernest Hemingway.",
       "recipe": {
@@ -188,7 +252,12 @@
       "image": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?q=80&w=687&auto=format&fit=crop",
       "countryId": 8,
       "difficultyLevel": 2,
-      "tags": ["tequila", "limão", "mexicano", "cítrico"],
+      "tags": [
+        "tequila",
+        "limão",
+        "mexicano",
+        "cítrico"
+      ],
       "isHighlighted": true,
       "curiosity": "A Margarita é considerada um dos drinks mais famosos do mundo e possui diversas histórias sobre sua origem.",
       "recipe": {
@@ -215,7 +284,12 @@
       "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=687&auto=format&fit=crop",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": ["whiskey", "bourbon", "clássico", "bitters"],
+      "tags": [
+        "whiskey",
+        "bourbon",
+        "clássico",
+        "bitters"
+      ],
       "isHighlighted": false,
       "curiosity": "O Old Fashioned surgiu no século XIX e ajudou a definir o conceito moderno de coquetel.",
       "recipe": {
@@ -242,7 +316,12 @@
       "image": "https://images.unsplash.com/photo-1642048162640-44cfb8a3f1e3?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 1,
       "difficultyLevel": 1,
-      "tags": ["vodka", "blue curaçao", "cítrico", "azul"],
+      "tags": [
+        "vodka",
+        "blue curaçao",
+        "cítrico",
+        "azul"
+      ],
       "isHighlighted": true,
       "curiosity": "O Blue Lagoon ficou popular em festas de verão graças à sua aparência vibrante e tropical.",
       "recipe": {
@@ -269,7 +348,12 @@
       "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=687&auto=format&fit=crop",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": ["rum", "tropical", "limão", "tiki"],
+      "tags": [
+        "rum",
+        "tropical",
+        "limão",
+        "tiki"
+      ],
       "isHighlighted": false,
       "curiosity": "O nome 'Mai Tai' vem da expressão taitiana 'Maita'i', que significa 'excelente' ou 'o melhor'.",
       "recipe": {
@@ -297,7 +381,12 @@
       "image": "https://images.unsplash.com/photo-1666355704386-93cf5f887404?q=80&w=1145&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 9,
       "difficultyLevel": 1,
-      "tags": ["cachaça", "limão", "brasileiro", "refrescante"],
+      "tags": [
+        "cachaça",
+        "limão",
+        "brasileiro",
+        "refrescante"
+      ],
       "isHighlighted": true,
       "curiosity": "A Caipirinha é considerada o coquetel nacional do Brasil e é apreciada em todo o mundo como símbolo da cultura brasileira.",
       "recipe": {
@@ -319,47 +408,47 @@
   "countries": [
     {
       "id": 1,
-      "name": "França",
+      "name": "frança",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
     },
     {
       "id": 2,
-      "name": "Itália",
+      "name": "itália",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"
     },
     {
       "id": 3,
-      "name": "Rússia",
+      "name": "rússia",
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg"
     },
     {
       "id": 4,
-      "name": "Porto Rico",
+      "name": "porto Rico",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg"
     },
     {
       "id": 5,
-      "name": "Estados Unidos",
+      "name": "estados Unidos",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
     },
     {
       "id": 6,
-      "name": "Japão",
+      "name": "japão",
       "image": "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg"
     },
     {
       "id": 7,
-      "name": "Cuba",
+      "name": "cuba",
       "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg"
     },
     {
       "id": 8,
-      "name": "México",
+      "name": "méxico",
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg"
     },
     {
       "id": 9,
-      "name": "Brasil",
+      "name": "brasil",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1920px-Flag_of_Brazil.svg.png"
     }
   ]

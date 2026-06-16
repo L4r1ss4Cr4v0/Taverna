@@ -1,9 +1,11 @@
 import drinkService from "../../services/drink-service.js";
-import { renderHeader } from "./utils.js";
+import { getMe, renderHeader } from "./utils.js";
 
 const main = document.querySelector("#main-details");
 
 export default async function init() {
+  const userId = getMe().id;
+
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
   if (!id) {
@@ -21,16 +23,8 @@ export default async function init() {
     return;
   }
 
-  renderHeader();
+  renderHeader(userId);
   renderDetailsScreen(drink);
-}
-
-async function getDrinkById(id) {
-  return fetch(`${API_URL_DRINKS}/${id}?_expand=country`)
-    .then((response) => (response.ok ? response.json() : null))
-    .catch((error) => {
-      console.error("Erro ao ler detalhes do drink via API JSONServer:", error);
-    });
 }
 
 function listItens(itens, list) {
