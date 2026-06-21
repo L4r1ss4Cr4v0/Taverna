@@ -22,7 +22,7 @@ export function renderHeader(userId = null) {
           id="logo"
         />
       </a>
-      <nav class="navbar navbar-expand-md navbar-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark">
         <div>
           <button
             class="navbar-toggler"
@@ -54,8 +54,8 @@ export function renderHeader(userId = null) {
                             <a href="forms_user.html" class="btn border border-warning text-light ms-2 rounded-0">Entrar</a>
                         `
                         : ` 
-                            <a class="nav-link active" href="favorites.html?user=${userId}">Seus Favoritos</a>
-                            <a class="nav-link active" href="create_drink.html?user=${userId}">Adicionar Drink</a>
+                            <a class="nav-link active" href="favorites.html?user=${userId.id}">Seus Favoritos</a>
+                            <a class="nav-link active" href="create_drink.html?user=${userId.id}">Adicionar Drink</a>
 
                             <button id="logout-btn" class="btn border border-danger text-light ms-2 rounded-0">Sair</button>
               `
@@ -71,7 +71,6 @@ export function renderHeader(userId = null) {
 
   if (userId) {
     const logoutBtn = document.querySelector("#logout-btn");
-    console.log(logoutBtn);
     logoutBtn.addEventListener("click", () => logout());
   }
 }
@@ -97,7 +96,7 @@ export function createCard(
           <i class="bi bi-heart fs-4 text-danger"></i>
         </button>
   
-        <h3>${name}</h3>
+        <h4>${name}</h4>
         <p class="text-light">${description}</p>
         <p class="text-light w-auto">Dificuldade: ${difficult} / 5</p>
         <div>

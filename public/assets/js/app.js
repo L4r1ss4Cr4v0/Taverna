@@ -10,7 +10,7 @@ export default async function init() {
   const drinks = await drinkService.getDrinks();
   const countries = await countryService.getCountries();
   const user = getMe();
-  renderHeader(user && user.id);
+  renderHeader(user);
   listOptions(countries);
   buildCarousel(drinks);
   renderCatalog(drinks);

@@ -26,8 +26,6 @@ class DrinkService {
       params.append("countryId", countryId);
     }
 
-    console.log(`${this.urlBase}?${params.toString()}`);
-
     const response = await fetch(`${this.urlBase}?${params.toString()}`);
 
     return response.json();

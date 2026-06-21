@@ -1,5 +1,5 @@
 import drinkService from "../../services/drink-service.js";
-import { getMe, renderHeader } from "./utils.js";
+import { createCard, getMe, renderHeader } from "./utils.js";
 
 export default async function init() {
   const main = document.querySelector("main");
@@ -18,18 +18,16 @@ export default async function init() {
       "<p>Usuário não identificado! Tente clicar em Dashboard no cabeçalho</p>";
   }
 
-  renderHeader(user.id);
+  renderHeader(user);
 
   renderFavorites(user.favorites, user.id);
 }
 
 async function renderFavorites(list = [], userId) {
-  const favoriteSection = document.querySelector("#favorite-div");
-  list.forEach((id) => {
-    const drink = drinkService.getDrink(id);
-    favoriteSection.innerHTML = createCard(
-      userId,
-      id,
+  const favoriteSection = document.querySelector("#favorite-slider");
+  list.forEach(async (id) => {
+    const drink = await drinkService.getDrink(id);
+    favoriteSection.innerHTML += createCard(
       drink.name,
       drink.shortDescription,
       drink.difficultyLevel,

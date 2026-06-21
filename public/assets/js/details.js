@@ -4,8 +4,6 @@ import { getMe, renderHeader } from "./utils.js";
 const main = document.querySelector("#main-details");
 
 export default async function init() {
-  const userId = getMe().id;
-
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
   if (!id) {
@@ -23,7 +21,10 @@ export default async function init() {
     return;
   }
 
+  const userId = getMe();
+
   renderHeader(userId);
+
   renderDetailsScreen(drink);
 }
 
@@ -40,7 +41,7 @@ function renderDetailsScreen(drink) {
   const section = document.querySelector("#drink-details");
   const image = document.querySelector("#details-img");
   const title = `<div class="d-flex align-items-center mb-4 gap-3">
-            <h1 id="drink-title">${drink.name}</h1>
+            <h1 id="drink-title" class="w-50">${drink.name}</h1>
             <img
               class="country-details"
               src=${drink.country.image}
