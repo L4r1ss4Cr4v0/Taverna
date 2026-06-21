@@ -28,15 +28,28 @@ async function renderFavorites(user) {
 
   favoriteSection.innerHTML = "";
 
-  for (const id of user.favorites) {
-    const drink = await drinkService.getDrink(id);
+  const favs = user.favorites;
 
-    favoriteSection.appendChild(
-      createCard(drink, user, (card, wasFavorite) => {
-        if (wasFavorite) {
-          card.remove();
-        }
-      })
-    );
+  if (favs.length > 0) {
+    favoriteSection.classList.remove("d-flex");
+    favoriteSection.classList.remove("align-itens-center");
+    favoriteSection.classList.remove("justify-content-center");
+    for (const id of favs) {
+      const drink = await drinkService.getDrink(id);
+
+      favoriteSection.appendChild(
+        createCard(drink, user, (card, wasFavorite) => {
+          if (wasFavorite) {
+            card.remove();
+          }
+        })
+      );
+    }
+    return;
   }
+
+  favoriteSection.classList.add("d-flex");
+  favoriteSection.classList.add("align-itens-center");
+  favoriteSection.classList.add("justify-content-center");
+  favoriteSection.innerHTML = "<p>Você não possui drinks favoritos</p>";
 }

@@ -10,20 +10,15 @@
     {
       "name": "Larissa Cravo",
       "password": "123",
-      "favorites": [],
-      "id": 2,
-      "admin": false
+      "favorites": [5, 9],
+      "admin": false,
+      "id": 2
     },
     {
       "name": "dev",
       "password": "dev",
       "admin": true,
-      "favorites": [
-        6,
-        1,
-        2,
-        5
-      ],
+      "favorites": [6, 1, 2],
       "id": 3
     },
     {
@@ -36,19 +31,13 @@
   ],
   "drinks": [
     {
-      "id": 1,
       "name": "Bloody Mary",
       "shortDescription": "Coquetel clássico com vodka, suco de tomate e especiarias.",
       "fullDescription": "Um drink clássico feito com vodka, suco de tomate, molho inglês, suco de limão e especiarias. Possui sabor marcante e levemente picante.",
       "image": "https://images.unsplash.com/photo-1749314375885-ce55f25cd6d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJsb29keSUyME1hcnl8ZW58MHx8MHx8fDI%3D",
-      "countryId": 1,
       "difficultyLevel": 3,
-      "tags": [
-        "vodka",
-        "picante",
-        "tomate",
-        "clássico"
-      ],
+      "tags": ["vodka", "picante", "tomate", "clássico"],
+      "countryId": 1,
       "recipe": {
         "ingredients": [
           "50ml de vodka",
@@ -64,7 +53,8 @@
           "Acrescente o molho inglês e a pimenta-do-reino.",
           "Misture bem e sirva gelado."
         ]
-      }
+      },
+      "id": 1
     },
     {
       "id": 2,
@@ -74,12 +64,7 @@
       "image": "https://images.unsplash.com/photo-1651877546976-ab61bf889b68?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 2,
       "difficultyLevel": 2,
-      "tags": [
-        "gin",
-        "campari",
-        "italiano",
-        "amargo"
-      ],
+      "tags": ["gin", "campari", "italiano", "amargo"],
       "recipe": {
         "ingredients": [
           "30ml de gin",
@@ -104,12 +89,7 @@
       "image": "https://images.unsplash.com/photo-1598294147169-fadc4e4a3ae4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 3,
       "difficultyLevel": 2,
-      "tags": [
-        "vodka",
-        "café",
-        "cremoso",
-        "doce"
-      ],
+      "tags": ["vodka", "café", "cremoso", "doce"],
       "recipe": {
         "ingredients": [
           "50ml de vodka",
@@ -133,12 +113,7 @@
       "image": "https://images.unsplash.com/photo-1607446045710-d5a8fd9bc1db?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 4,
       "difficultyLevel": 1,
-      "tags": [
-        "rum",
-        "abacaxi",
-        "coco",
-        "tropical"
-      ],
+      "tags": ["rum", "abacaxi", "coco", "tropical"],
       "recipe": {
         "ingredients": [
           "50ml de rum branco",
@@ -162,12 +137,7 @@
       "image": "https://images.unsplash.com/photo-1632987788901-0c090e5f4eaf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": [
-        "vodka",
-        "cranberry",
-        "cítrico",
-        "elegante"
-      ],
+      "tags": ["vodka", "cranberry", "cítrico", "elegante"],
       "recipe": {
         "ingredients": [
           "40ml de vodka cítrica",
@@ -192,16 +162,9 @@
       "image": "https://images.unsplash.com/photo-1571762450239-f0f047321444?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 6,
       "difficultyLevel": 1,
-      "tags": [
-        "japonês",
-        "arroz",
-        "fermentado",
-        "tradicional"
-      ],
+      "tags": ["japonês", "arroz", "fermentado", "tradicional"],
       "recipe": {
-        "ingredients": [
-          "150ml de saquê"
-        ],
+        "ingredients": ["150ml de saquê"],
         "steps": [
           "Escolha servir o saquê quente ou gelado.",
           "Despeje em uma pequena taça tradicional.",
@@ -217,12 +180,7 @@
       "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9qaXRvfGVufDB8fDB8fA%3D%3D",
       "countryId": 7,
       "difficultyLevel": 2,
-      "tags": [
-        "rum",
-        "hortelã",
-        "limão",
-        "refrescante"
-      ],
+      "tags": ["rum", "hortelã", "limão", "refrescante"],
       "recipe": {
         "ingredients": [
           "50ml de rum branco",
@@ -248,12 +206,7 @@
       "image": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?q=80&w=687&auto=format&fit=crop",
       "countryId": 8,
       "difficultyLevel": 2,
-      "tags": [
-        "tequila",
-        "limão",
-        "mexicano",
-        "cítrico"
-      ],
+      "tags": ["tequila", "limão", "mexicano", "cítrico"],
       "recipe": {
         "ingredients": [
           "50ml de tequila",
@@ -278,12 +231,7 @@
       "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=687&auto=format&fit=crop",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": [
-        "whiskey",
-        "bourbon",
-        "clássico",
-        "bitters"
-      ],
+      "tags": ["whiskey", "bourbon", "clássico", "bitters"],
       "recipe": {
         "ingredients": [
           "50ml de bourbon ou rye whiskey",
@@ -308,12 +256,7 @@
       "image": "https://images.unsplash.com/photo-1642048162640-44cfb8a3f1e3?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 1,
       "difficultyLevel": 1,
-      "tags": [
-        "vodka",
-        "blue curaçao",
-        "cítrico",
-        "azul"
-      ],
+      "tags": ["vodka", "blue curaçao", "cítrico", "azul"],
       "recipe": {
         "ingredients": [
           "50ml de vodka",
@@ -338,12 +281,7 @@
       "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=687&auto=format&fit=crop",
       "countryId": 5,
       "difficultyLevel": 3,
-      "tags": [
-        "rum",
-        "tropical",
-        "limão",
-        "tiki"
-      ],
+      "tags": ["rum", "tropical", "limão", "tiki"],
       "recipe": {
         "ingredients": [
           "40ml de rum branco",
@@ -369,12 +307,7 @@
       "image": "https://images.unsplash.com/photo-1666355704386-93cf5f887404?q=80&w=1145&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "countryId": 9,
       "difficultyLevel": 1,
-      "tags": [
-        "cachaça",
-        "limão",
-        "brasileiro",
-        "refrescante"
-      ],
+      "tags": ["cachaça", "limão", "brasileiro", "refrescante"],
       "recipe": {
         "ingredients": [
           "1 limão",
@@ -396,12 +329,7 @@
       "fullDescription": "Criado nos Estados Unidos na década de 1940, o Moscow Mule combina vodka, suco de limão e ginger beer, resultando em um coquetel cítrico.",
       "image": "https://images.unsplash.com/photo-1655917080583-3cc3e65fac2d?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "difficultyLevel": 2,
-      "tags": [
-        "vodka",
-        "gengibre",
-        "limão",
-        "refrescante"
-      ],
+      "tags": ["vodka", "gengibre", "limão", "refrescante"],
       "countryId": 5,
       "recipe": {
         "ingredients": [
