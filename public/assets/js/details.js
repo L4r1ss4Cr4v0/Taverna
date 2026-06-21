@@ -1,5 +1,5 @@
 import drinkService from "../../services/drink-service.js";
-import { getMe, renderHeader } from "./utils.js";
+import { getMe, handleToggleFavorite, renderHeader } from "./utils.js";
 
 const main = document.querySelector("#main-details");
 
@@ -21,11 +21,11 @@ export default async function init() {
     return;
   }
 
-  const userId = getMe();
+  const user = getMe();
 
-  renderHeader(userId);
+  renderHeader(user);
 
-  renderDetailsScreen(drink);
+  renderDetailsScreen(drink, user);
 }
 
 function listItens(itens, list) {
@@ -37,23 +37,51 @@ function listItens(itens, list) {
   });
 }
 
-function renderDetailsScreen(drink) {
+function renderDetailsScreen(drink, user = null) {
   const section = document.querySelector("#drink-details");
   const image = document.querySelector("#details-img");
-  const title = `<div class="d-flex align-items-center mb-4 gap-3">
-            <h1 id="drink-title" class="w-50">${drink.name}</h1>
-            <img
-              class="country-details"
-              src=${drink.country.image}
-              alt="Bandeira do(a) ${drink.country.name}"
-            />
-          </div>
-    
-    `;
+
+  const isFavorite = user?.favorites?.includes(drink.id);
+
+  const title = `
+    <div class="d-flex align-items-center mb-4 gap-3">
+      <h1 id="drink-title" class="w-50">${drink.name}</h1>
+
+      ${
+        user
+          ? `
+            <button
+              id="favorite-btn"
+              class="btn-favorite bg-transparent border-0 p-0"
+              type="button"
+            >
+              <i class="bi ${
+                isFavorite ? "bi-heart-fill" : "bi-heart"
+              } fs-4 text-danger"></i>
+            </button>
+          `
+          : ""
+      }
+
+      <img
+        class="country-details"
+        src="${drink.country.image}"
+        alt="Bandeira do(a) ${drink.country.name}"
+      />
+    </div>
+  `;
 
   image.src = drink.image;
 
   section.insertAdjacentHTML("afterbegin", title);
+
+  if (user) {
+    const favoriteBtn = document.querySelector("#favorite-btn");
+
+    favoriteBtn.addEventListener("click", async () => {
+      await handleToggleFavorite(favoriteBtn, user, drink.id);
+    });
+  }
 
   const listTags = document.querySelector("#list-tags");
   listItens(drink.tags, listTags);
@@ -61,11 +89,10 @@ function renderDetailsScreen(drink) {
   const description = document.querySelector("#description");
   description.classList.add("w-50");
   description.classList.add("mb-4");
-
   description.textContent = drink.fullDescription;
 
   const level = document.querySelector("#difficult");
-  level.textContent = ` ${drink.difficultyLevel}/5`;
+  level.textContent = `${drink.difficultyLevel}/5`;
 
   const listIngredients = document.querySelector("#list-ingredients");
   listItens(drink.recipe.ingredients, listIngredients);

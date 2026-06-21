@@ -42,19 +42,27 @@ class UserService {
     return res.json();
   }
 
-  async toggleFavorite(userId, drinkId) {
-    const response = await fetch(`${this.baseUrl}/users/${userId}`);
-    const user = await response.json();
+  async toggleFavorite(user, drinkId) {
+    const favs = user.favorites;
+    if (favs.includes(drinkId)) {
+      const index = favs.indexOf(drinkId);
+      favs.splice(index, 1);
+    } else {
+      favs.push(drinkId);
+    }
 
-    const favorites = user.favorites.includes(drinkId)
-      ? user.favorites.filter((id) => id !== drinkId)
-      : [...user.favorites, drinkId];
+    const { id, ...objUser } = user;
 
-    await fetch(`${this.baseUrl}/users/${userId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ favorites }),
-    });
+    const userUpdated = {
+      ...objUser,
+      favorites: favs,
+    };
+
+    const newUser = await userService.updateUser(id, userUpdated);
+
+    sessionStorage.setItem("currentUser", JSON.stringify(newUser));
+
+    return favs;
   }
 
   async deleteUser(id) {

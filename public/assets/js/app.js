@@ -1,6 +1,7 @@
 import drinkService from "../../services/drink-service.js";
 import countryService from "../../services/country-service.js";
 import { createCard, getMe, renderHeader } from "./utils.js";
+import userService from "../../services/user_service.js";
 
 const catalogContainer = document.querySelector("#drinks-gallery .container");
 const carouselInner = document.querySelector(".carousel-inner");
@@ -13,7 +14,7 @@ export default async function init() {
   renderHeader(user);
   listOptions(countries);
   buildCarousel(drinks);
-  renderCatalog(drinks);
+  renderCatalog(drinks, user);
   const ctx = document.querySelector("#chart");
   renderChart(ctx);
 }
@@ -72,7 +73,7 @@ function listOptions(countries) {
   });
 }
 
-async function renderCatalog(items) {
+async function renderCatalog(items, user) {
   catalogContainer.innerHTML = "";
 
   if (!catalogContainer) {
@@ -95,39 +96,36 @@ async function renderCatalog(items) {
     const col = document.createElement("div");
     col.className = "col-12 col-md-6 col-xl-4 d-flex justify-content-center";
 
-    col.innerHTML = createCard(
-      drink.name,
-      drink.shortDescription,
-      drink.difficultyLevel,
-      drink.image,
-      drink.country.name,
-      drink.country.image
-    );
+    const card = createCard(drink, user);
 
-    const button = col.querySelector("#details-btn");
+    col.appendChild(card);
 
-    button.addEventListener(
-      "click",
-      () => (window.location.href = `details.html?id=${drink.id}`)
-    );
+    // const button = col.querySelector("#details-btn");
 
-    const favoriteBtn = col.querySelector(".btn-favorite");
+    // button.addEventListener(
+    //   "click",
+    //   () => (window.location.href = `details.html?id=${drink.id}`)
+    // );
 
-    favoriteBtn.addEventListener("click", () => {
-      if (user) {
-        window.location.href = "login.html";
-        return;
-      }
+    // if (user) {
+    //   const favoriteBtn = col.querySelector(".btn-favorite");
 
-      const icon = favoriteBtn.querySelector("i");
-      const isFavorited = icon.classList.contains("bi-heart-fill");
+    //   favoriteBtn.addEventListener("click", async () => {
+    //     if (!user) {
+    //       window.location.href = "login.html";
+    //       return;
+    //     }
 
-      icon.classList.replace(
-        isFavorited ? "bi-heart-fill" : "bi-heart",
-        isFavorited ? "bi-heart" : "bi-heart-fill"
-      );
-      userService.toggleFavorite(userId, id);
-    });
+    //     const icon = favoriteBtn.querySelector("i");
+    //     const isFavorited = icon.classList.contains("bi-heart-fill");
+
+    //     icon.classList.replace(
+    //       isFavorited ? "bi-heart-fill" : "bi-heart",
+    //       isFavorited ? "bi-heart" : "bi-heart-fill"
+    //     );
+    //     await userService.toggleFavorite(user, drink.id);
+    //   });
+    // }
 
     row.appendChild(col);
   });

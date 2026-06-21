@@ -20,20 +20,23 @@ export default async function init() {
 
   renderHeader(user);
 
-  renderFavorites(user.favorites, user.id);
+  renderFavorites(user);
 }
 
-async function renderFavorites(list = [], userId) {
+async function renderFavorites(user) {
   const favoriteSection = document.querySelector("#favorite-slider");
-  list.forEach(async (id) => {
+
+  favoriteSection.innerHTML = "";
+
+  for (const id of user.favorites) {
     const drink = await drinkService.getDrink(id);
-    favoriteSection.innerHTML += createCard(
-      drink.name,
-      drink.shortDescription,
-      drink.difficultyLevel,
-      drink.image,
-      drink.country.name,
-      drink.country.image
+
+    favoriteSection.appendChild(
+      createCard(drink, user, (card, wasFavorite) => {
+        if (wasFavorite) {
+          card.remove();
+        }
+      })
     );
-  });
+  }
 }

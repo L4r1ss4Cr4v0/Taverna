@@ -19,12 +19,10 @@
       "password": "dev",
       "admin": true,
       "favorites": [
+        6,
         1,
         2,
-        3,
-        4,
-        5,
-        6
+        5
       ],
       "id": 3
     },
@@ -200,7 +198,6 @@
         "fermentado",
         "tradicional"
       ],
-      "curiosity": "Apesar de ser conhecido como 'vinho de arroz', a produção do saquê é mais parecida com a fabricação de cerveja.",
       "recipe": {
         "ingredients": [
           "150ml de saquê"
@@ -226,7 +223,6 @@
         "limão",
         "refrescante"
       ],
-      "curiosity": "O Mojito é um dos coquetéis mais famosos de Cuba e supostamente era apreciado por Ernest Hemingway.",
       "recipe": {
         "ingredients": [
           "50ml de rum branco",
@@ -258,7 +254,6 @@
         "mexicano",
         "cítrico"
       ],
-      "curiosity": "A Margarita é considerada um dos drinks mais famosos do mundo e possui diversas histórias sobre sua origem.",
       "recipe": {
         "ingredients": [
           "50ml de tequila",
@@ -289,7 +284,6 @@
         "clássico",
         "bitters"
       ],
-      "curiosity": "O Old Fashioned surgiu no século XIX e ajudou a definir o conceito moderno de coquetel.",
       "recipe": {
         "ingredients": [
           "50ml de bourbon ou rye whiskey",
@@ -320,7 +314,6 @@
         "cítrico",
         "azul"
       ],
-      "curiosity": "O Blue Lagoon ficou popular em festas de verão graças à sua aparência vibrante e tropical.",
       "recipe": {
         "ingredients": [
           "50ml de vodka",
@@ -351,7 +344,6 @@
         "limão",
         "tiki"
       ],
-      "curiosity": "O nome 'Mai Tai' vem da expressão taitiana 'Maita'i', que significa 'excelente' ou 'o melhor'.",
       "recipe": {
         "ingredients": [
           "40ml de rum branco",
@@ -401,16 +393,16 @@
     {
       "name": "Moscow Mule",
       "shortDescription": "Drink refrescante à base de vodka, gengibre e limão.",
-      "fullDescription": "Criado nos Estados Unidos na década de 1940, o Moscow Mule combina vodka, suco de limão e ginger beer, resultando em um coquetel cítrico, levemente pi",
-      "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=687&auto=format&fit=crop",
-      "difficultyLevel": 5,
+      "fullDescription": "Criado nos Estados Unidos na década de 1940, o Moscow Mule combina vodka, suco de limão e ginger beer, resultando em um coquetel cítrico.",
+      "image": "https://images.unsplash.com/photo-1655917080583-3cc3e65fac2d?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "difficultyLevel": 2,
       "tags": [
         "vodka",
         "gengibre",
-        "limao",
-        "fresh"
+        "limão",
+        "refrescante"
       ],
-      "countryId": 13,
+      "countryId": 5,
       "recipe": {
         "ingredients": [
           "50ml de vodka",
@@ -420,8 +412,9 @@
           "Rodela de limão para decorar"
         ],
         "steps": [
-          "Encha uma caneca de cobre ou copo alto com gelo.",
-          "Adicione a vodka e o suco de limãoComplete com a ginger beer",
+          "Encha uma caneca de cobre ou copo alto com gelo",
+          "Adicione a vodka e o suco de limão",
+          "Complete com a ginger beer",
           "Misture delicadamente",
           "Decore com uma rodela de limão e sirva"
         ]
@@ -452,7 +445,7 @@
     },
     {
       "id": 5,
-      "name": "estados Unidos",
+      "name": "estados unidos",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
     },
     {
@@ -474,26 +467,6 @@
       "id": 9,
       "name": "brasil",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1920px-Flag_of_Brazil.svg.png"
-    },
-    {
-      "name": "Brasil",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1920px-Flag_of_Brazil.svg.png",
-      "id": 10
-    },
-    {
-      "name": "fdsdfsd",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1920px-Flag_of_Brazil.svg.png",
-      "id": 11
-    },
-    {
-      "name": "BR",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
-      "id": 12
-    },
-    {
-      "name": "EUA",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
-      "id": 13
     }
   ]
 }

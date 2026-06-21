@@ -1,3 +1,5 @@
+import userService from "../../services/user_service.js";
+
 export function notify(message) {
   const toast = document.querySelector("#toast-container");
   const toastBody = document.querySelector(".toast-body");
@@ -80,35 +82,94 @@ function logout() {
   window.location.reload();
   window.location.href = "index.html";
 }
-export function createCard(
-  name,
-  description,
-  difficult,
-  imgDrink,
-  country,
-  imgCountry
-) {
-  return `
-      <article class="drink-card">
-        <img src="${imgDrink}" alt="Foto do drink ${name}" class="main-img"/>
-  
-        <button class="btn-favorite bg-transparent border-0 p-0" type="button">
-          <i class="bi bi-heart fs-4 text-danger"></i>
-        </button>
-  
-        <h4>${name}</h4>
-        <p class="text-light">${description}</p>
-        <p class="text-light w-auto">Dificuldade: ${difficult} / 5</p>
-        <div>
-          <button class="bg-transparent border border-warning text-light p-2 me-2" id="details-btn" type="button">
-            Ver detalhes
-          </button>
-          <img src="${imgCountry}" alt="Bandeira do(a) ${country}" class="country"/>
-        </div>
-      </article>`;
+export function createCard(drink, user = null, onFavoriteChange = false) {
+  const card = document.createElement("article");
+  card.classList.add("drink-card");
+
+  const mainImg = document.createElement("img");
+  mainImg.src = drink.image;
+  mainImg.alt = `Foto do drink ${drink.name}`;
+  mainImg.classList.add("main-img");
+
+  card.appendChild(mainImg);
+
+  if (user) {
+    const favoriteBtn = document.createElement("button");
+    favoriteBtn.type = "button";
+    favoriteBtn.className = "btn-favorite bg-transparent border-0 p-0";
+
+    const icon = document.createElement("i");
+    icon.className = user.favorites?.includes(drink.id)
+      ? "bi bi-heart-fill fs-4 text-danger"
+      : "bi bi-heart fs-4 text-danger";
+
+    favoriteBtn.appendChild(icon);
+    card.appendChild(favoriteBtn);
+
+    favoriteBtn.addEventListener("click", async () => {
+      const wasFavorite = favoriteBtn
+        .querySelector("i")
+        .classList.contains("bi-heart-fill");
+
+      await handleToggleFavorite(favoriteBtn, user, drink.id);
+
+      if (onFavoriteChange) {
+        await onFavoriteChange(card, wasFavorite);
+      }
+    });
+  }
+
+  const title = document.createElement("h4");
+  title.textContent = drink.name;
+
+  const description = document.createElement("p");
+  description.className = "text-light";
+  description.textContent = drink.shortDescription;
+
+  const difficulty = document.createElement("p");
+  difficulty.className = "text-light w-auto";
+  difficulty.textContent = `Dificuldade: ${drink.difficultyLevel} / 5`;
+
+  card.append(title, description, difficulty);
+
+  const footer = document.createElement("div");
+
+  const detailsBtn = document.createElement("button");
+  detailsBtn.type = "button";
+  detailsBtn.className =
+    "bg-transparent border border-warning text-light p-2 me-2";
+  detailsBtn.textContent = "Ver detalhes";
+
+  detailsBtn.addEventListener("click", () => {
+    console.log("details");
+    window.location.href = `details.html?id=${drink.id}`;
+  });
+
+  const countryImg = document.createElement("img");
+  countryImg.src = drink.country.image;
+  countryImg.alt = `Bandeira do(a) ${drink.country.name}`;
+  countryImg.classList.add("country");
+
+  footer.append(detailsBtn, countryImg);
+  card.appendChild(footer);
+
+  return card;
 }
 
 export function getMe() {
   const user = JSON.parse(sessionStorage.getItem("currentUser"));
   return user ? user : null;
+}
+
+export async function handleToggleFavorite(favoriteBtn, user, drinkId) {
+  const icon = favoriteBtn.querySelector("i");
+
+  const isFavorited = icon.classList.contains("bi-heart-fill");
+
+  icon.classList.replace(
+    isFavorited ? "bi-heart-fill" : "bi-heart",
+    isFavorited ? "bi-heart" : "bi-heart-fill"
+  );
+
+  await userService.toggleFavorite(user, drinkId);
 }

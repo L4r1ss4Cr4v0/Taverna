@@ -169,6 +169,10 @@ h3 {
   object-fit: cover;
 }
 
+.btn-favorite {
+  float: right;
+}
+
 p {
   width: fit-content;
 }
