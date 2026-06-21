@@ -5,7 +5,7 @@ import { getMe, notify, renderHeader } from "./utils.js";
 let editingDrinkId = null;
 
 async function resolveCountryId(country) {
-  const result = await countryService.findCountry(country.name);
+  const result = await countryService.findCountry(country.name.toLowerCase());
   const existingCountry = Array.isArray(result) ? result[0] : result;
 
   if (existingCountry?.id) {

@@ -1,32 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Larissa",
-      "password": "123",
-      "favorites": [],
-      "admin": true
-    },
-    {
-      "name": "Larissa Cravo",
-      "password": "123",
-      "favorites": [5, 9],
-      "admin": false,
-      "id": 2
-    },
-    {
       "name": "dev",
       "password": "dev",
-      "admin": true,
+      "admin": false,
       "favorites": [6, 1, 2],
-      "id": 3
+      "id": 1
     },
     {
       "name": "admin",
       "password": "admin",
-      "admin": false,
-      "favorites": [],
-      "id": 4
+      "admin": true,
+      "favorites": [1, 2, 5, 3],
+      "id": 2
     }
   ],
   "drinks": [
@@ -368,7 +354,7 @@
     },
     {
       "id": 4,
-      "name": "porto Rico",
+      "name": "porto rico",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg"
     },
     {

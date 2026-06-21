@@ -143,8 +143,12 @@ async function renderChart(chart) {
   const countries = await countryService.getCountries();
   const drinks = await drinkService.getDrinks();
 
-  const countryNames = countries.map((country) => country.name);
-
+  const countryNames = countries.map((country) =>
+    country.name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ")
+  );
   const countDrinksByCountry = drinks.reduce((acc, drink) => {
     const country = drink.country.name;
     acc[country] = (acc[country] || 0) + 1;
@@ -152,7 +156,7 @@ async function renderChart(chart) {
   }, {});
 
   const countDrinks = countryNames.map(
-    (country) => countDrinksByCountry[country] || 0
+    (country) => countDrinksByCountry[country.toLowerCase()] || 0
   );
 
   new Chart(chart, {
